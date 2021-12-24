@@ -26,7 +26,7 @@ const AddMovie = ({getMoviesData}) => {
             <Button  onClick={handleShow} >Add Movie
       </Button>
 
-      <Modal show={show} onHide={handleClose} animation={false}  style={{color:'#97AC0C'}}>
+      <Modal show={show} onHide={handleClose} animation={false}  style={{color:'#AC2873'}}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>

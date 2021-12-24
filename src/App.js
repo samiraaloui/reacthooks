@@ -2,7 +2,10 @@ import React ,{useState} from 'react';
 import MyNav from './components/MyNav/MyNav';
 import MoviesData from './components/MoviesData/MoviesData'
 import MoviesList from './components/MoviesList/MoviesList'
-import AddMovie from './components/AddMovie/AddMovie'
+import AddMovie from './components/AddMovie/AddMovie';
+import MovieDetails from './components/MovieDetails/MovieDetails';
+import { Switch ,  Route } from 'react-router-dom';
+
  function App() {
     const[titleSearch, setTitleSearch]=useState('')
     const handelTitle=(input)=>{
@@ -17,16 +20,22 @@ import AddMovie from './components/AddMovie/AddMovie'
       setMoviesListData([...MoviesListData , input])
     }
         return (
-         <div>
-           <MyNav
-            handelTitle={handelTitle}  
-            handleStar={handleStar}/>
-            <AddMovie
-            getMoviesData={getMoviesData}/>
-            <MoviesList
-            MoviesListData={MoviesListData}
-            titleSearch={titleSearch}
-            ratingSearch={ratingSearch}/>
+         <div className='App'>
+           <Switch>
+             <Route exact path="/" >
+           
+                  <MyNav
+                  handelTitle={handelTitle}  
+                  handleStar={handleStar}/>
+                  <AddMovie
+                  getMoviesData={getMoviesData}/>
+                  <MoviesList
+                  MoviesListData={MoviesListData}
+                  titleSearch={titleSearch}
+                  ratingSearch={ratingSearch}/>
+             </Route>
+             <Route  path="/details/:id" component={MovieDetails}/>
+            </Switch>
          </div>
          )
  }
